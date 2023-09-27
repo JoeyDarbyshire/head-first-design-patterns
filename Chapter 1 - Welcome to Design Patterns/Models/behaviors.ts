@@ -14,6 +14,12 @@ export class FlyNoWay implements IFlyBehavior {
   }
 }
 
+export class FlyRocketPowered implements IFlyBehavior {
+  fly(): void {
+    console.log("I'm flying with a rocket!")
+  }
+}
+
 export interface IQuackBehavior {
   quack(): void
 }
