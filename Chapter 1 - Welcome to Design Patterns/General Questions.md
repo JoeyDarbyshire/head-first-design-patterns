@@ -25,9 +25,9 @@ A duck call is a device that hunters use to mimic the calls (quacks) of ducks.  
 
 ### Design Puzzle (page 25)
 1. Arrange the classes \
-`Queen`, `King`, `Troll`, and `Knight` -> IS A \(extends\) -> `Character` class \
+`Queen`, `King`, `Troll`, and `Knight` => IS A \(extends\) => `Character` class \
 `KnifeBehavior`, `BowAndArrowBehavior`, `AxeBehavior`, and `SwordBehavior` => Implements => `WeaponBehavior` \
-`Character` -> HAS A -. `WeaponBehavior` \
+`Character` => HAS A => `WeaponBehavior` \
 2. Identify one abstract class, one interface, and 8 classes \
 `Character` is an abstract class \
 `WeaponBehavior` is an interface \
@@ -36,3 +36,8 @@ A duck call is a device that hunters use to mimic the calls (quacks) of ducks.  
 See step one \
 4. Put the method `setWeapon()` into the right class \
 This method should go in the `Character` abstract class. \
+
+### Answers
+I missed option D on Sharpen Your Pencil (page 5) \
+D.\) It's hard to gain knowledge of all duck behaviors \
+Design puzzle solution was correct. \
