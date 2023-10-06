@@ -74,7 +74,7 @@ class CurrentConditionDisplay extends WeatherDataObserver implements IWeatherDis
   }
 
   display(): void {
-    // Dispaly Data
+    // Display Data
   }
 }
 
@@ -84,7 +84,7 @@ class StatisticsDisplay extends WeatherDataObserver implements IWeatherDisplay, 
   }
 
   display(): void {
-    // Dispaly Data
+    // Display Data
   }
 }
 
@@ -94,6 +94,6 @@ class ForecastDisplay extends WeatherDataObserver implements IWeatherDisplay, IW
   }
 
   display(): void {
-    // Dispaly Data
+    // Display Data
   }
 }
