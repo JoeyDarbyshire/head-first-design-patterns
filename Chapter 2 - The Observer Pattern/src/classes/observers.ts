@@ -7,5 +7,5 @@ export abstract class WeatherDataObserver implements IWeatherDataObserver {
     this.subject.subscribe(this)
   }
 
-  abstract update(temp: number, humidity: number, pressure: number): void
+  abstract update(observable: IWeatherDataSubject): void
 }

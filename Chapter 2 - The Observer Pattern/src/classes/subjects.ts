@@ -1,4 +1,4 @@
-import { IWeatherDataSubject } from '../models'
+import { IWeatherDataObserver, IWeatherDataSubject } from '../models'
 
 export class WeatherData implements IWeatherDataSubject {
   private observers: Set<IWeatherDataObserver> = new Set()
@@ -17,11 +17,7 @@ export class WeatherData implements IWeatherDataSubject {
     this.observers.delete(observer)
   }
   notifyObservers(): void {
-    this.observers.forEach(observer => observer.update(
-      this.temperature,
-      this.humidity,
-      this.pressure
-    ))
+    this.observers.forEach(observer => observer.update(this))
   }
 
   public setMeasurements(temperature: number, humidity: number, pressure: number): void {
@@ -29,5 +25,17 @@ export class WeatherData implements IWeatherDataSubject {
     this.humidity = humidity
     this.pressure = pressure
     this.measurementsChanged()
+  }
+
+  public getTemperature(): number {
+    return this.temperature
+  }
+
+  public getHumidity(): number {
+    return this.humidity
+  }
+
+  public getPressure(): number {
+    return this.pressure
   }
 }

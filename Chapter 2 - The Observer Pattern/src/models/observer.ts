@@ -1,3 +1,5 @@
+import { IWeatherDataSubject } from './subject'
+
 export interface IWeatherDataObserver {
-  update(temperature: number, humidity: number, pressure:number): void
+  update(observable: IWeatherDataSubject): void
 }
