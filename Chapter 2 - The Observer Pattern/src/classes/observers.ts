@@ -1,11 +1,11 @@
 import { IWeatherDataObserver, IWeatherDataSubject } from '../models'
 
 export abstract class WeatherDataObserver implements IWeatherDataObserver {
-  private subject: IWeatherDataSubject
+  protected observable: IWeatherDataSubject
   constructor(subject: IWeatherDataSubject) {
-    this.subject = subject
-    this.subject.subscribe(this)
+    this.observable = subject
+    this.observable.subscribe(this)
   }
 
-  abstract update(observable: IWeatherDataSubject): void
+  abstract update(): void
 }

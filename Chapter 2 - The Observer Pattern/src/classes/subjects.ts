@@ -17,7 +17,7 @@ export class WeatherData implements IWeatherDataSubject {
     this.observers.delete(observer)
   }
   notifyObservers(): void {
-    this.observers.forEach(observer => observer.update(this))
+    this.observers.forEach(observer => observer.update())
   }
 
   public setMeasurements(temperature: number, humidity: number, pressure: number): void {

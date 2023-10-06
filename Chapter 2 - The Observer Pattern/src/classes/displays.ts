@@ -5,9 +5,9 @@ export class CurrentConditionDisplay extends WeatherDataObserver implements IWea
   private temperature: number = 0
   private humidity: number = 0
   
-  update(observable: IWeatherDataSubject): void {
-    this.temperature = observable.getTemperature()
-    this.humidity = observable.getHumidity()
+  update(): void {
+    this.temperature = this.observable.getTemperature()
+    this.humidity = this.observable.getHumidity()
     this.display()
   }
 
@@ -26,8 +26,8 @@ export class StatisticsDisplay extends WeatherDataObserver implements IWeatherDi
     return +(this.sumAllTemps / this.numberOfTempsRecieved).toFixed(2)
   }
 
-  update(observable: IWeatherDataSubject): void {
-    const temperature = observable.getTemperature()
+  update(): void {
+    const temperature = this.observable.getTemperature()
     this.numberOfTempsRecieved += 1
     this.sumAllTemps = +(this.sumAllTemps + temperature).toFixed(2)
 
@@ -49,9 +49,9 @@ export class ForecastDisplay extends WeatherDataObserver implements IWeatherDisp
   private currentPressure: number = 29.0
   private lastPressure: number | null = null
 
-  update(observable: IWeatherDataSubject): void {
+  update(): void {
     this.lastPressure = this.currentPressure
-    this.currentPressure = observable.getPressure()
+    this.currentPressure = this.observable.getPressure()
     this.display()
   }
 
@@ -69,9 +69,9 @@ export class ForecastDisplay extends WeatherDataObserver implements IWeatherDisp
 export class HeatIndexDisplay extends WeatherDataObserver implements IWeatherDisplay, IWeatherDataObserver {
   private heatIndex: number = 0.0
 
-  update(observable: IWeatherDataSubject): void {
-    const t = observable.getTemperature()
-    const rh = observable.getHumidity()
+  update(): void {
+    const t = this.observable.getTemperature()
+    const rh = this.observable.getHumidity()
     this.heatIndex = +(
       (16.923 + (0.185212 * t)) + 
       (5.37941 * rh) - 
