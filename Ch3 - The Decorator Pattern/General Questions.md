@@ -1,20 +1,31 @@
-# The Observer Pattern
+# The Decorator Pattern
 
-### Sharpen Your Pencil (page 42)
-Based on our first implementation, which of the following apply? \
-Answers (Choose all that apply) - \
-A.\) We are coding to concrete implementations, not interfaces. \
-B.\) For every new display we'll need to alter this code. \
-C.\) We have no way to add (or remove) display elements at runtime. \
-E.\) We haven't encaptsulated the part that changes. \ 
+### Sharpen Your Pencil (page 83)
+Write the cost() methods for the following classes (pseudo-code) is okay \
+```class Beverage {
+  public cost(): float {
+    const cost = 0
+    if (this.hasMilk) {
+      cost += milk.cost
+    }
+    // repeat this for soy, mocha, and whip
 
-### Sharpen Your Pencil (Page 55)
-Sketch out the classes you'll need to implement the Weather Station \
-See './example_models.ts' \
+    return cost
+  }
+}
 
-### Brain Power (Page 58)
-Without rewritting the entire question, generally speaking I think the best method would be for the displays to subscribe to specific data that they need instead of being sent the data.  That way if they need the temp and humidity, they don't need to be informed about the pressure as well.
+class DarkRoast extends Beverage {
+  public description = "Most Excellent Dark Roast"
 
-### Answers
-I got all of the correct options for Sharpen Your Pencil (page 42) \
-There were no other answers for the other questions I answered
+  public cost(): float {
+    const cost = super.cost()
+    cost += ingredients.cost
+
+    return cost
+  }
+}
+```
+
+### Brain Power (page 92)
+To implement the cost of the coffess, I would just have them return their defined base cost.  For instance, Dark Roast would just return `1.99`.  For the condiments, I would have them first call `beverage.cost()` to get the cost of the coffee and any other condiments, then add their own cost to the return value of that function and return it. \
+I'm not 100% sure how we would implement the `getDescription` methods for the decorators.  Ideally we would want the description to return something like "Most Excellent Dark Roast with Mocha, Soy, and Milk," but I'm not sure how we would be able to tell that the beverage is both a condiment as well in order to implement that commas appropriately instead of something like "Most Excellent Dark Roast with Mocha and with Soy and with Milk."
