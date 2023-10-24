@@ -53,3 +53,18 @@ export class CaliforniaStylePizzaStore extends PizzaStore {
   }
 }
 ```
+
+### Design Puzzle (page 133)
+See above for the design of the CaliforniaStylePizzaStore \
+Write the five *most bizarre* things you can think of to put on a pizza for the california pizza store! \
+1. Grapes \
+2. Cinnamon \
+3. Oysters \
+4. Gravy \
+5. Rice \
+
+### Sharpen Your Pencil (page 137)
+The class is dependant on 8 classes, 12 if we add the california pizzas in. \
+
+### Answers
+All Sharpen Your Pencil answers were correct! \
