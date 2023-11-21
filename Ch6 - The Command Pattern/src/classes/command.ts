@@ -198,3 +198,19 @@ export class CeilingFanOffCommand implements Command {
     }
   }
 }
+
+export class MacroCommand implements Command {
+  constructor(private commands: Command[]) { }
+
+  getClassName(): string {
+    return this.commands.map(command => command.getClassName()).join(' / ')
+  }
+
+  execute(): void {
+    this.commands.forEach(command => command.execute())
+  }
+
+  undo(): void {
+    this.commands.forEach(command => command.undo())
+  }
+}
