@@ -1,10 +1,15 @@
+import promptSync from 'prompt-sync'
+
 export abstract class CaffeineBeverage {
-  // readonly to prevent subclasses from overwriting this method
+  protected prompt = promptSync()
+  // readonly to prevent subclasses from overwriting this template method
   public readonly prepareRecipe = (): void => {
     this.boilWater()
     this.brew()
     this.pourInCup()
-    this.addCondiments()
+    if (this.customerWantsCondiments()) {
+      this.addCondiments()
+    }
   }
 
   protected abstract brew(): void 
@@ -17,24 +22,12 @@ export abstract class CaffeineBeverage {
   protected pourInCup(): void {
     console.log('Pouring into cup...')
   }
-}
 
-export class Coffee extends CaffeineBeverage {
-  protected brew(): void {
-    console.log('Dripping Coffee through filter...')
+  protected customerWantsCondiments(): boolean {
+    return true
   }
 
-  protected addCondiments(): void {
-    console.log('Adding Sugar and Milk...')
-  }
-}
-
-export class Tea extends CaffeineBeverage {
-  protected brew(): void {
-    console.log('Steeping the tea...')
-  }
-
-  protected addCondiments(): void {
-    console.log('Adding Lemon...')
+  protected getUserInput(query: string): string {
+    return this.prompt(query)
   }
 }
