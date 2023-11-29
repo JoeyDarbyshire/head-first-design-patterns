@@ -26,3 +26,6 @@ class Tea extends CaffeineBeverage {
   protected addCondiments(): void
 }
 ```
+
+### Answers
+All quests were correct again! Yay! \
