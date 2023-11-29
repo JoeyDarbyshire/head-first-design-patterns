@@ -10,3 +10,9 @@ I would use the decorator pattern.  This way I could add any extra functionality
 Decorator -> Doesn't alter the interface, but adds responsibility \
 Adapter -> Converts one interface to another \
 Facade -> Makes an interface simpler \
+
+### Sharpen Your Pencil (page 270)
+The first version of the House class violates the Principle of Least Knowledge because it calls a method on an object created by another function.  The second version does not violate because we store the returned object from the first function and then pass it as a parameter to a separate function that calls the method. \
+
+### Answers
+All answers were correct!
